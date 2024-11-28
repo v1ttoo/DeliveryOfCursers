@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://f7aiqpa2asnc"]
+
+[ext_resource type="PackedScene" uid="uid://b3mucc5431t5b" path="res://scenes/world.tscn" id="1_gjpwl"]
+[ext_resource type="PackedScene" uid="uid://c2mfy0aqn82og" path="res://objects/key/key.tscn" id="2_ii2e5"]
+[ext_resource type="PackedScene" uid="uid://benmc6hhjveap" path="res://player/player.tscn" id="2_nebpf"]
+[ext_resource type="PackedScene" uid="uid://bg5gbp2f3tyd4" path="res://objects/coin/coin.tscn" id="2_pknbj"]
+[ext_resource type="PackedScene" uid="uid://cyfmbk8e48nps" path="res://objects/door/door.tscn" id="4_7slhv"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="World" parent="." instance=ExtResource("1_gjpwl")]
+
+[node name="Keys" type="Node2D" parent="."]
+
+[node name="Key" parent="Keys" instance=ExtResource("2_ii2e5")]
+position = Vector2(100, 36)
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("2_pknbj")]
+position = Vector2(76, 76)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("2_pknbj")]
+position = Vector2(84, 76)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("2_pknbj")]
+position = Vector2(100, 60)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("2_pknbj")]
+position = Vector2(52, 44)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("2_pknbj")]
+position = Vector2(84, 28)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("2_pknbj")]
+position = Vector2(28, 36)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("2_pknbj")]
+position = Vector2(28, 28)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("2_pknbj")]
+position = Vector2(36, 28)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("2_pknbj")]
+position = Vector2(36, 36)
+
+[node name="Coin10" parent="Coins" instance=ExtResource("2_pknbj")]
+position = Vector2(36, 68)
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door" parent="Doors" instance=ExtResource("4_7slhv")]
+position = Vector2(68, 100)
+
+[node name="Player" parent="." instance=ExtResource("2_nebpf")]
+position = Vector2(76, 28)

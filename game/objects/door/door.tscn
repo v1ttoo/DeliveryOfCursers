@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyfmbk8e48nps"]
+
+[ext_resource type="Texture2D" uid="uid://dndd1j7s4xvpl" path="res://spritesheet.png" id="1_m62ru"]
+[ext_resource type="Script" path="res://objects/door/door.gd" id="1_qs0ig"]
+[ext_resource type="AudioStream" uid="uid://dpllorriseblc" path="res://sounds/openDoor.wav" id="3_uh6yk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ibnd"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etlia"]
+size = Vector2(10, 10)
+
+[node name="Door" type="StaticBody2D" node_paths=PackedStringArray("audioStream")]
+script = ExtResource("1_qs0ig")
+audioStream = NodePath("AudioStream")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_m62ru")
+region_enabled = true
+region_rect = Rect2(56, 24, 8, 8)
+
+[node name="AudioStream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uh6yk")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0ibnd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_etlia")
+
+[connection signal="finished" from="AudioStream" to="." method="_on_audio_stream_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
